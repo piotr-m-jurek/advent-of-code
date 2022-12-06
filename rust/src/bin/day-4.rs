@@ -64,6 +64,7 @@ fn main() -> Result<()> {
         .flat_map(|line| line.parse::<Tasks>())
         .filter(|tasks| tasks.contains())
         .count();
+
     let task2 = data
         .flat_map(|line| line.parse::<Tasks>())
         .filter(|tasks| tasks.overlaps())
@@ -72,16 +73,5 @@ fn main() -> Result<()> {
     println!("Task 1: {}", task1);
     println!("Task 2: {}", task2);
 
-    // dbg!(&data);
-    // let buddies = data
-    //     .iter()
-    //     .map(|str| {
-    //         str.split(',').map(|buddies| {
-    //             dbg!(buddies.split("").take(1).next());
-    //             return buddies;
-    //         })
-    //     })
-    //     .collect::<Vec<_>>();
-    // dbg!(buddies);
     Ok(())
 }
