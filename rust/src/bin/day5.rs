@@ -98,7 +98,7 @@ fn part2(mut stacks: Crane, commands: &Vec<Move>) -> String {
 }
 
 fn main() -> Result<()> {
-    let input = include_str!("./day-5.prod");
+    let input = include_str!("./day5.prod");
     let (stacks_raw, commands_raw) = input.split_once("\n\n").expect("aoc should provide");
     let stacks = stacks_raw.parse::<Crane>()?;
     let commands: Vec<Move> = commands_raw

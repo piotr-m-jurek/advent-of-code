@@ -2,7 +2,7 @@ use anyhow::Result;
 use std::fs;
 
 fn main() -> Result<()> {
-    let input_2 = fs::read_to_string("./src/bin/day-7.prod")?;
+    let input_2 = fs::read_to_string("./src/bin/day7.prod")?;
 
     let required_amount_part_1 = 100_000;
     let mut total_part_1 = 0;

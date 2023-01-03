@@ -57,7 +57,7 @@ impl FromStr for Tasks {
 }
 
 fn main() -> Result<()> {
-    let data = include_str!("day-4.prod").trim().lines();
+    let data = include_str!("day4.prod").trim().lines();
 
     let task1 = data
         .clone()

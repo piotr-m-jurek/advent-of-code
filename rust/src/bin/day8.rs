@@ -14,7 +14,7 @@ fn directions(grid: &[Vec<u32>], x: usize, y: usize) -> [Vec<u32>; 4] {
 }
 
 fn main() -> Result<()> {
-    let input = include_str!("./day-8.prod");
+    let input = include_str!("./day8.prod");
     let grid: Vec<Vec<u32>> = input
         .lines()
         .map(|line| line.chars().flat_map(|c| c.to_digit(10)).collect())

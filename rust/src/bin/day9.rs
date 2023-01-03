@@ -15,7 +15,7 @@ fn main() -> Result<()> {
     return Ok(());
 }
 fn part_1() -> Result<()> {
-    let input = include_str!("./day-9.prod");
+    let input = include_str!("./day9.prod");
     let mut seen: HashSet<Point> = HashSet::new();
     let starting_position = Point::default();
     let mut head = starting_position;

@@ -14,7 +14,7 @@ fn main() {
 }
 
 fn read_input() -> Vec<String> {
-    std::fs::read_to_string("src/bin/day-1.txt")
+    std::fs::read_to_string("src/bin/day1.txt")
         .expect("couldn't read input file")
         .lines()
         .map(|x| x.to_string())

@@ -1,6 +1,6 @@
 
 fn main() {
-    let something = include_str!("day-2.txt")
+    let something = include_str!("day2.txt")
         .trim()
         .lines()
         .map(|strat| strat.replace(" ", ""));

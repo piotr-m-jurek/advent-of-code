@@ -1,7 +1,7 @@
 use anyhow::Result;
 
 fn main() -> Result<()> {
-    let src: Vec<char> = include_str!("./day-6.prod").trim().chars().collect();
+    let src: Vec<char> = include_str!("./day6.prod").trim().chars().collect();
 
     let part1 = find_first_unique_x(&src, 4);
     println!("Part1 {}", part1);

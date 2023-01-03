@@ -1,6 +1,6 @@
 use anyhow::Error;
 fn main() -> Result<(), Error> {
-    let lines = include_str!("day-3.txt")
+    let lines = include_str!("day3.txt")
         .trim()
         .split('\n')
         .collect::<Vec<&str>>();
