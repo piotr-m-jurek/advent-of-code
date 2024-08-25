@@ -1,8 +1,7 @@
 open Core
 
-let part_1_test_input = "./inputs/day1-1-test.txt"
-let part_2_test_input = "./inputs/day1-2-test.txt"
-let input_day_1 = "./inputs/day1.txt"
+let test_input = "./inputs/day1-test.txt"
+let prod_input = "./inputs/day1-prod.txt"
 
 module Translation = struct
   let cases =
@@ -62,6 +61,6 @@ let part_2 lines =
 ;;
 
 (* PRINT *)
-let () = Lib.read_all part_1_test_input |> part_1 |> Fmt.pr "\nPart 1: %d"
-let () = Lib.read_all part_2_test_input |> part_2 |> Fmt.pr "\nPart 2: %d"
-let () = Lib.read_all input_day_1 |> part_2 |> Fmt.pr "\nbig input: %d"
+let () = Lib.read_all test_input |> part_1 |> Fmt.pr "\nPart 1: %d"
+let () = Lib.read_all test_input |> part_2 |> Fmt.pr "\nPart 2: %d"
+let () = Lib.read_all prod_input |> part_2 |> Fmt.pr "\nbig input: %d"

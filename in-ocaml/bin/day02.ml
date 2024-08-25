@@ -1,6 +1,6 @@
 open Core
 
-let part_1_test = "./inputs/day2.txt"
+let test_input = "./inputs/day2-test.txt"
 
 let conditions =
   [ 12, Re.Perl.compile_pat "(\\d{1,}) red"
@@ -10,9 +10,7 @@ let conditions =
 ;;
 
 let () =
-  Fmt.pr "\n";
-  Fmt.pr "\n";
-  let lines = Lib.read_all part_1_test in
+  let lines = Lib.read_all test_input in
   List.foldi lines ~init:0 ~f:(fun idx res line ->
     let matched =
       List.filter conditions ~f:(fun (limit, condition) ->
