@@ -34,10 +34,10 @@ let () =
   in
   let lines = Lib.read_all test_input in
   let res =
-    List.fold lines ~init:0 ~f:(fun acc first_line ->
+    List.fold lines ~init:0 ~f:(fun acc line ->
       let result =
         List.map matchers ~f:(fun matcher ->
-          let matches = Re.all matcher first_line in
+          let matches = Re.all matcher line in
           List.fold matches ~init:1 ~f:(fun acc m ->
             let num = Re.Group.get m 1 |> Int.of_string_opt |> Option.value_exn in
             max acc num))
