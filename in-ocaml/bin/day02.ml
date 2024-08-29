@@ -35,14 +35,14 @@ let () =
   let lines = Lib.read_all test_input in
   let res =
     List.fold lines ~init:0 ~f:(fun acc line ->
-      let result =
+      let minimal_sum =
         List.map matchers ~f:(fun matcher ->
-          let matches = Re.all matcher line in
-          List.fold matches ~init:1 ~f:(fun acc m ->
-            let num = Re.Group.get m 1 |> Int.of_string_opt |> Option.value_exn in
-            max acc num))
+          Re.all matcher line
+          |> List.fold ~init:1 ~f:(fun acc m ->
+            Re.Group.get m 1 |> Int.of_string_opt |> Option.value_exn |> max acc))
       in
-      acc + List.fold result ~init:1 ~f:( * ))
+      let power_of = List.fold minimal_sum ~init:1 ~f:( * ) in
+      acc + power_of)
   in
   Fmt.pr "@ Part 2: %d@." res;
   ()
