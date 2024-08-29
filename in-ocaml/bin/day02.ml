@@ -1,6 +1,6 @@
 open Core
 
-let test_input = "./inputs/day2-test.txt"
+let test_input = "./inputs/day2-prod.txt"
 
 let conditions =
   [ 12, Re.Perl.compile_pat "(\\d{1,}) red"
@@ -21,5 +21,29 @@ let () =
         |> Option.is_some)
     in
     if List.length matched = 0 then res + idx + 1 else res)
-  |> Fmt.pr "@part1: %d@."
+  |> Fmt.pr "@ Part 1: %d @."
+;;
+
+let () =
+  Fmt.pr "@ Part 2: @.";
+  let matchers =
+    [ Re.Perl.compile_pat "(\\d{1,}) red"
+    ; Re.Perl.compile_pat "(\\d{1,}) green"
+    ; Re.Perl.compile_pat "(\\d{1,}) blue"
+    ]
+  in
+  let lines = Lib.read_all test_input in
+  let res =
+    List.fold lines ~init:0 ~f:(fun acc first_line ->
+      let result =
+        List.map matchers ~f:(fun matcher ->
+          let matches = Re.all matcher first_line in
+          List.fold matches ~init:1 ~f:(fun acc m ->
+            let num = Re.Group.get m 1 |> Int.of_string_opt |> Option.value_exn in
+            max acc num))
+      in
+      acc + List.fold result ~init:1 ~f:( * ))
+  in
+  Fmt.pr "@ Part 2: %d@." res;
+  ()
 ;;
