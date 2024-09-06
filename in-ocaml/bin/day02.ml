@@ -10,7 +10,7 @@ let conditions =
 ;;
 
 let () =
-  let lines = Lib.read_all test_input in
+  let lines = Lib.read_lines test_input in
   List.foldi lines ~init:0 ~f:(fun idx res line ->
     let matched =
       List.filter conditions ~f:(fun (limit, condition) ->
@@ -32,7 +32,7 @@ let () =
     ; Re.Perl.compile_pat "(\\d{1,}) blue"
     ]
   in
-  let lines = Lib.read_all test_input in
+  let lines = Lib.read_lines test_input in
   let res =
     List.fold lines ~init:0 ~f:(fun acc line ->
       let minimal_sum =

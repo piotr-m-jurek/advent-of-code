@@ -61,6 +61,6 @@ let part_2 lines =
 ;;
 
 (* PRINT *)
-let () = Lib.read_all test_input |> part_1 |> Fmt.pr "\nPart 1: %d"
-let () = Lib.read_all test_input |> part_2 |> Fmt.pr "\nPart 2: %d"
-let () = Lib.read_all prod_input |> part_2 |> Fmt.pr "\nbig input: %d"
+let () = Lib.read_lines test_input |> part_1 |> Fmt.pr "\nPart 1: %d"
+let () = Lib.read_lines test_input |> part_2 |> Fmt.pr "\nPart 2: %d"
+let () = Lib.read_lines prod_input |> part_2 |> Fmt.pr "\nbig input: %d"

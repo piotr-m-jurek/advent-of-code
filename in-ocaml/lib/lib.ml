@@ -1,9 +1,7 @@
-open Core
+open! Core
 
-let read_all filename =
-  Stdio.In_channel.with_file filename ~f:(fun channel ->
-    channel |> In_channel.input_all |> String.split_lines)
-;;
+let read_lines = In_channel.read_lines
+let read_all = In_channel.read_all
 
 let print_list_of_strs strs =
   Format.printf
@@ -13,3 +11,5 @@ let print_list_of_strs strs =
        Format.pp_print_string)
     strs
 ;;
+
+let directions = [ 0, 1; 1, 1; 1, 0; 1, -1; 0, -1; -1, -1; -1, 0; -1, 1 ]

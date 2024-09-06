@@ -1,4 +1,5 @@
 (executables
- (public_names day01 day02)
- (names day01 day02)
- (libraries lib core fmt re))
+ (public_names day01 day02 day03)
+ (names day01 day02 day03)
+ (libraries lib core fmt re ppx_deriving.show)
+ (preprocess ( pps ppx_deriving.show )))
