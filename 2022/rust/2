@@ -1,0 +1,11 @@
+
+
+pub(crate) struct GridPos {
+    pub(crate) x: i32,
+    pub(crate) y: i32,
+    }
+
+impl fmt::Debug for GridPos {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "({}, {})", self.x, self.y)
+    }
