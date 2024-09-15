@@ -27,9 +27,17 @@ module A = struct
     | _ -> false
   ;;
 
+  let digit =
+    let is_digit = function
+      | '0' .. '9' -> true
+      | _ -> false
+    in
+    take_while1 is_digit >>| Int.of_string <?> "digit: Parse one or more digits"
+  ;;
+
+  let space = take_while (fun ch -> Char.(ch = ' '))
   let whitespace = take_while Char.is_whitespace
-  let digit = take_while1 Char.is_digit >>| Int.of_string <?> "Couldn't parse digit"
-  let newline = take_while is_newline
-  let string = string
-  let wmatch matcher = whitespace *> matcher <* whitespace
+  let newline = string "\n"
+  let wstring str = whitespace *> string str <* whitespace
+  let wmatch t = whitespace *> t <* whitespace
 end
