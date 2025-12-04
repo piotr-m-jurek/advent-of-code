@@ -7,7 +7,7 @@ import gleam/result
 import gleam/string
 
 pub fn main() {
-  use ids <- result.try(file_helpers.read_csv("input/day2.test"))
+  use ids <- result.try(file_helpers.read_csv("input/day2.prod"))
   let part1 = part1(ids)
   let part2 = part2(ids)
 
@@ -57,8 +57,9 @@ fn invalid(id) {
 
 pub fn check_for_size(size, id_str) {
   case string.length(id_str) % size == 0, chunk_string(id_str, size) {
+    _, [] -> True
+    True, [_] -> False
     True, [first, ..rest] -> list.all(rest, fn(chunk) { chunk == first })
-    _, [] -> False
     _, _ -> False
   }
 }
