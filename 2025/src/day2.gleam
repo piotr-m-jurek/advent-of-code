@@ -18,7 +18,7 @@ pub fn main() {
 
 // ========== Part 1 ==========
 
-fn part1(ids: List(String)) {
+fn part1(ids) {
   ids
   |> list.flat_map(parse_id)
   |> list.filter_map(check_for_validity)
@@ -66,14 +66,14 @@ pub fn check_for_size(size, id_str) {
 
 // ========== HELPERS ==========
 
-pub fn chunk_string(s: String, len: Int) {
+pub fn chunk_string(s, len) {
   s
   |> string.to_graphemes()
   |> list.sized_chunk(into: len)
   |> list.map(string.join(_, ""))
 }
 
-fn parse_id(id: String) -> List(Int) {
+fn parse_id(id) {
   case string.split(id, on: "-") {
     [first, second] -> {
       let assert Ok(parsed_first) = int.parse(first)
